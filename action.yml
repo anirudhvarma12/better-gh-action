@@ -3,6 +3,3 @@ description: "A GitHub action to allow users to suggest changes."
 runs:
     using: 'node12'
     main: 'script.js'
-on:
-    issues:
-        [opened]
