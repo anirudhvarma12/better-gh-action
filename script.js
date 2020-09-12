@@ -21,14 +21,13 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
   const [suggestedUrl, name, ...descriptions] = gh_context.event.issue.body.split("\n");
   const url = parseURLFromIssueTitle(issueTitle);
   const existingIndex = findExistingMatchForUrl(url, database);
-  console.log("Found Existing", existingIndex);
   if (existingIndex === -1) {
     const item = {
       urlPattern: url,
       alternatives: [
         {
-          url: suggestedUrl,
-          name: name,
+          url: suggestedUrl.trim(),
+          name: name.trim(),
           desc: descriptions.join(),
         },
       ],
@@ -42,5 +41,4 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
     });
   }
   fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database));
-  console.log("FILE", JSON.stringify(database));
 });
