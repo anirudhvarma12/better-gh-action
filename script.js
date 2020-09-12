@@ -1,2 +1,2 @@
-const gh = process.env["github"];
-console.log("GITHUB", JSON.stringify(gh.context));
+// const gh = process.env
+console.log("GITHUB", process.env);
