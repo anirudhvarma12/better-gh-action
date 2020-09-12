@@ -4,6 +4,6 @@ runs:
     using: 'node12'
     main: 'script.js'
 env:
-    gh_context: "${{ github.event }}"
+    gh_context: ${{ github.event }}
 inputs:
     gh_context:
