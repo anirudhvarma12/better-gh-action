@@ -7,7 +7,8 @@ function parseURLFromIssueTitle(title) {
 function findExistingMatchForUrl(url, list) {
   return list.findIndex((listItem) => {
     const match = url.match(new RegExp(listItem.urlPattern));
-    return match && match.alternatives;
+    console.log("For URL", url, listItem.urlPattern, match);
+    return match;
   });
 }
 
@@ -35,9 +36,9 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
     database.push(item);
   } else {
     database[existingIndex].alternatives.push({
-      url: url,
-      name: url,
-      desc: issueDescription,
+      url: suggestedUrl.trim(),
+      name: name.trim(),
+      desc: descriptions.join(),
     });
   }
   fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database));
