@@ -1,82 +1,92 @@
 [
-  {
-    "urlPattern": "https://(www.)?gmail.com",
-    "alternatives": [
-      {
-        "url": "https://tutanota.com",
-        "name": "Tutanota",
-        "desc": "Tutanota is an encrypted email and calendar service, based in Germany."
-      },
-      {
-        "url": "https://protonmail.com",
-        "name": "ProtonMail",
-        "desc": "ProtonMail is a Swiss-based email service, with no advertising and maximum possible privacy for its users."
-      },
-      {
-        "url": "https://posteo.de",
-        "name": "Posteo",
-        "desc": "Posteo is an email service, with no advertising."
-      },
-      {
-        "url": "https://fastmail.com",
-        "name": "Fastmail",
-        "desc": "Fastmail is an Australian company that offers private email, funded entirely by its users."
-      },
-      {
-        "url": "https://soverin.net",
-        "name": "Soverin",
-        "desc": "Soverin hosts privacy-oriented email and website, based in the Netherlands."
-      },
-      {
-        "url": "https://thexyz.com",
-        "name": "Thexyz",
-        "desc": "Thexyz is a Canadian company, offering privacy-conscious business email."
-      },
-      {
-        "url": "https://kolabnow.com",
-        "name": "Kolab Now",
-        "desc": "Kolab Now is a Swiss email provider with lots of extra services, aimed at business people."
-      },
-      {
-        "url": "https://mailbox.org",
-        "name": "mailbox.org",
-        "desc": "Run by a German family business, mailbox.org offers email, online file storage and online office features."
-      }
-    ]
-  },
-  {
-    "urlPattern": "https?://(www.)?whatsapp.com",
-    "alternatives": [
-      {
-        "url": "https://signal.org",
-        "name": "Signal",
-        "desc": "Signal is a popular private messaging, voice call, and video call service."
-      },
-      {
-        "url": "https://xmpp.org",
-        "name": "XMPP",
-        "desc": "XMPP is a widely-used free and open internet messaging standard."
-      },
-      {
-        "url": "https://quicksy.im",
-        "name": "Quicksy",
-        "desc": "Quicksy is an easy-to-use chat app."
-      },
-      {
-        "url": "https://zom.im/zomenglish.html",
-        "name": "Zom",
-        "desc": "Zom is an extremely easy to use and free open source messenger app."
-      },
-      {
-        "url": "https://matrix.org",
-        "name": "Matrix / Element",
-        "desc": "An open network for secure, decentralized communication."
-      },
-      {
-        "url": "https://jami.net",
-        "name": "Jami",
-        "desc": "Jami is a libre, easy-to-use alternative to Skype, with voice call, video call, and messaging."
-      }
-    ]
-  }
+    {
+        "urlPattern": "https://(www.)?gmail.com",
+        "alternatives": [
+            {
+                "url": "https://tutanota.com",
+                "name": "Tutanota",
+                "desc": "Tutanota is an encrypted email and calendar service, based in Germany."
+            },
+            {
+                "url": "https://protonmail.com",
+                "name": "ProtonMail",
+                "desc": "ProtonMail is a Swiss-based email service, with no advertising and maximum possible privacy for its users."
+            },
+            {
+                "url": "https://posteo.de",
+                "name": "Posteo",
+                "desc": "Posteo is an email service, with no advertising."
+            },
+            {
+                "url": "https://fastmail.com",
+                "name": "Fastmail",
+                "desc": "Fastmail is an Australian company that offers private email, funded entirely by its users."
+            },
+            {
+                "url": "https://soverin.net",
+                "name": "Soverin",
+                "desc": "Soverin hosts privacy-oriented email and website, based in the Netherlands."
+            },
+            {
+                "url": "https://thexyz.com",
+                "name": "Thexyz",
+                "desc": "Thexyz is a Canadian company, offering privacy-conscious business email."
+            },
+            {
+                "url": "https://kolabnow.com",
+                "name": "Kolab Now",
+                "desc": "Kolab Now is a Swiss email provider with lots of extra services, aimed at business people."
+            },
+            {
+                "url": "https://mailbox.org",
+                "name": "mailbox.org",
+                "desc": "Run by a German family business, mailbox.org offers email, online file storage and online office features."
+            }
+        ]
+    },
+    {
+        "urlPattern": "https?://(www.)?whatsapp.com",
+        "alternatives": [
+            {
+                "url": "https://signal.org",
+                "name": "Signal",
+                "desc": "Signal is a popular private messaging, voice call, and video call service."
+            },
+            {
+                "url": "https://xmpp.org",
+                "name": "XMPP",
+                "desc": "XMPP is a widely-used free and open internet messaging standard."
+            },
+            {
+                "url": "https://quicksy.im",
+                "name": "Quicksy",
+                "desc": "Quicksy is an easy-to-use chat app."
+            },
+            {
+                "url": "https://zom.im/zomenglish.html",
+                "name": "Zom",
+                "desc": "Zom is an extremely easy to use and free open source messenger app."
+            },
+            {
+                "url": "https://matrix.org",
+                "name": "Matrix / Element",
+                "desc": "An open network for secure, decentralized communication."
+            },
+            {
+                "url": "https://jami.net",
+                "name": "Jami",
+                "desc": "Jami is a libre, easy-to-use alternative to Skype, with voice call, video call, and messaging."
+            }
+        ]
+    },
+    {
+        "urlPattern": "https://miteshshah.com",
+        "alternatives": [
+            {
+                "url": "oxal.org",
+                "name": "Oxals other site",
+                "desc": "desc line 2?"
+            }
+        ]
+    }
 ]
