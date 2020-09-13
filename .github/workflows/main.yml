@@ -19,7 +19,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: anirudhvarma12/better-gh-action@master
       - name: Check output
-        run: echo ${{ env.BETTER_COMMIT_MESSAGE }}
+        run: echo 'Hello ${{ env.BETTER_COMMIT_MESSAGE }}'
       - uses: peter-evans/create-pull-request@v3
         name: Create Pull Request
         with:
