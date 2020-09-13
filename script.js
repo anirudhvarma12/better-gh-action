@@ -27,8 +27,8 @@ function setEnv(key, value) {
 }
 
 function setupPRVariables(suggestionForUrl, suggestedUrl) {
-  setEnv("BETTER_PR_TITLE", `New Suggestion for ${suggestionForUrl} - ${suggestedUrl}`);
-  setEnv("BETTER_COMMIT_MESSAGE", `Add ${suggestedUrl} as a suggested alternative to ${suggestionForUrl}`);
+  setEnv("BETTER_PR_TITLE", `'New Suggestion for ${suggestionForUrl} - ${suggestedUrl}'`);
+  setEnv("BETTER_COMMIT_MESSAGE", `'Add ${suggestedUrl} as a suggested alternative to ${suggestionForUrl}'`);
 }
 
 fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, file) {
