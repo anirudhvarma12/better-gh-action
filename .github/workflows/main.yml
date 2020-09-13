@@ -25,5 +25,3 @@ jobs:
         with:
           branch-suffix: random
           labels: "Default List Suggestion"
-          title: ${{ env.BETTER_PR_TITLE }}
-          commit-message: ${{ env.BETTER_COMMIT_MESSAGE }}
