@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { exec } = require("child_process");
 
 function parseURLFromIssueTitle(title) {
   return title.replace("Suggestion:", "").trim();
@@ -11,9 +12,23 @@ function findExistingMatchForUrl(url, list) {
   });
 }
 
+function setEnv(key, value) {
+  exec(`echo "::set-env name=${key}::${value}"`, (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+  });
+}
+
 function setupPRVariables(suggestionForUrl, suggestedUrl) {
-  process.env.BETTER_PR_TITLE = `New Suggestion for ${suggestionForUrl} - ${suggestedUrl}`;
-  process.env.BETTER_COMMIT_MESSAGE = `Add ${suggestedUrl} as a suggested alternative to ${suggestionForUrl}`;
+  setEnv("BETTER_PR_TITLE", `New Suggestion for ${suggestionForUrl} - ${suggestedUrl}`);
+  setEnv("BETTER_COMMIT_MESSAGE", `Add ${suggestedUrl} as a suggested alternative to ${suggestionForUrl}`);
 }
 
 fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, file) {
