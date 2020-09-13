@@ -40,4 +40,5 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
     }
     fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database, null, 4));
     setupPRVariables(url, suggestedUrl.trim());
+    console.log(process.env.BETTER_PR_TITLE, process.env.BETTER_COMMIT_MESSAGE);
 });
