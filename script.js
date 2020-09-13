@@ -7,9 +7,13 @@ function parseURLFromIssueTitle(title) {
 function findExistingMatchForUrl(url, list) {
   return list.findIndex((listItem) => {
     const match = url.match(new RegExp(listItem.urlPattern));
-    console.log("For URL", url, listItem.urlPattern, !!match);
     return match;
   });
+}
+
+function setupPRVariables(suggestionForUrl, suggestedUrl) {
+  process.env.BETTER_PR_TITLE = `New Suggestion for ${suggestionForUrl} - ${suggestedUrl}`;
+  process.env.BETTER_COMMIT_MESSAGE = `Add ${suggestedUrl} as a suggested alternative to ${suggestionForUrl}`;
 }
 
 fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, file) {
@@ -26,13 +30,14 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
   const newItem = { url: suggestedUrl.trim(), name: name.trim(), desc: descriptions.join() };
   console.log("New Item", newItem);
   if (existingIndex === -1) {
-    const item = {
-      urlPattern: url,
-      alternatives: [newItem],
-    };
-    database.push(item);
-  } else {
-    database[existingIndex].alternatives.push(newItem);
-  }
-  fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database, null, 4));
+      const item = {
+          urlPattern: url,
+          alternatives: [newItem],
+        };
+        database.push(item);
+    } else {
+        database[existingIndex].alternatives.push(newItem);
+    }
+    fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database, null, 4));
+    setupPRVariables(url, suggestedUrl.trim());
 });
