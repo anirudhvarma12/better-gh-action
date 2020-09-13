@@ -7,7 +7,7 @@ function parseURLFromIssueTitle(title) {
 function findExistingMatchForUrl(url, list) {
   return list.findIndex((listItem) => {
     const match = url.match(new RegExp(listItem.urlPattern));
-    console.log("For URL", url, listItem.urlPattern, match);
+    console.log("For URL", url, listItem.urlPattern, !!match);
     return match;
   });
 }
@@ -22,24 +22,17 @@ fs.readFile(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, function (err, f
   const [suggestedUrl, name, ...descriptions] = gh_context.event.issue.body.split("\n");
   const url = parseURLFromIssueTitle(issueTitle);
   const existingIndex = findExistingMatchForUrl(url, database);
+  console.log("Index for url", url, existingIndex);
+  const newItem = { url: suggestedUrl.trim(), name: name.trim(), desc: descriptions.join() };
+  console.log("New Item", newItem);
   if (existingIndex === -1) {
     const item = {
       urlPattern: url,
-      alternatives: [
-        {
-          url: suggestedUrl.trim(),
-          name: name.trim(),
-          desc: descriptions.join(),
-        },
-      ],
+      alternatives: [newItem],
     };
     database.push(item);
   } else {
-    database[existingIndex].alternatives.push({
-      url: suggestedUrl.trim(),
-      name: name.trim(),
-      desc: descriptions.join(),
-    });
+    database[existingIndex].alternatives.push(newItem);
   }
-  fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database));
+  fs.writeFileSync(`${process.env.GITHUB_WORKSPACE}/defaultlist.json`, JSON.stringify(database, null, 4));
 });
